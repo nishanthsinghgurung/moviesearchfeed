@@ -7,6 +7,10 @@ import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 
+import { MovieSearchDataModule } from './movie-search/movie-search-data.module';
+import { MovieSearchEffects } from './movie-search/ngrx/movie-search.effects';
+import { movieSearchReducer } from './movie-search/ngrx/movie-search.reducer';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,9 +18,13 @@ import { AppEffects } from './app.effects';
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects]),
+    EffectsModule.forFeature([MovieSearchEffects]),
+    MovieSearchDataModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
