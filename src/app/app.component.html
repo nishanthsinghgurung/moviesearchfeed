@@ -8,8 +8,8 @@
   <button (click)='getMovieData()'>Search</button>
   <div class='result'> Result: </div>
   <div *ngIf="resultsExist">
-      <div *ngFor="let movie of result; index as i">
-          <img src="{{movie.poster}}">
+      <div class='loop' *ngFor="let movie of result; index as i">
+          <span><img src="{{movie.poster}}"></span>
           <span>{{movie.title}}</span>
         </div>
   </div>
